@@ -19,4 +19,3 @@ print myArm.alphaIds
 myArm.setArm((5,85,-90), 255)
 myArm.gotoHome()
 myArm.shutDown()
-
