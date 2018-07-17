@@ -16,6 +16,15 @@ class RobotArm (ControlBox):
         self.musecLims = np.tile( [[600], [1500], [2400]], len(alphaIds))
         self.alphaHome = [0,0,0,0,0,0]
         self.alphaSleep = [0,0,0,0,0,0]
+        
+    #interpolation of angles to positions
+        self.ticks = [0]*len(self.alphaIds)
+        for i in range(len(alphaIds)):
+            # creates an object
+            self.ticks[i] = interp1d(self.alphaLims[:,i], self.musecLims[:,i], axis = 0,
+                                 fill_value = "extrapolate")
+
+
 
     # a method to change the position of the servos with an optional speed 
     # @param mid is the servos ids
@@ -23,16 +32,10 @@ class RobotArm (ControlBox):
     # @param degrees is a list of degrees which are changed to a position
     
     def setArm(self, degrees, speed = 255):
-        ticks = [0]*len(self.alphaIds)
         command = [0]*len(self.alphaIds)
         for i in range(len(self.alphaIds)):
-            # creates an object 
-            ticks[i] = interp1d(self.alphaLims[:,i], self.musecLims[:,i], axis = 0,
-                             fill_value = "extrapolate")
-
             # to test if the setArm works            
-            command[i] = int(ticks[i](degrees[i]))
-            
+            command[i] = int(self.ticks[i](degrees[i]))          
             
         self.setServos(self.alphaIds, command, speed)
         
@@ -42,16 +45,10 @@ class RobotArm (ControlBox):
     # @param degrees is a list of degrees the servos rotate by
 
     def setJoint(self, alphaIds, degrees, speed=255):
-        ticks = [0]*len(self.alphaIds)
         command = [0]*len(self.alphaIds)
         for i in range(len(self.alphaIds)):
-            # creates an object 
-            ticks[i] = interp1d(self.alphaLims[:,i], self.musecLims[:,i], axis = 0,
-                             fill_value = "extrapolate")
-
             # to test if the setArm works            
-            command[i] = int(ticks[i](degrees[i]))
-            
+            command[i] = int(self.ticks[i](degrees[i]))           
             
         self.setServos(alphaIds, command, speed)        
 
