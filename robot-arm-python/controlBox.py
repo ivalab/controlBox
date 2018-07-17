@@ -39,18 +39,34 @@ class ControlBox:
         else:
             print "speed must be between 0 and 255."
 
-    def digitalIn(self, function, mid):
-        if function == 'a' or function == 'i':
-            for i in mid:
-                self.ser.write('"{}"'.format('E;a.'+str(function)+'.'+str(i) + ';'))
+    def digitalIn(self, function, alphaIds):
+        outPuts = []
+        if function == 'i':
+            for i in alphaIds:
+                self.ser.write('{}'.format('a.'+str(function)+'.'+str(i) + ';'))
+                print "from digital input---"
+                outPuts.append (self.ser.readline())
+            return outPuts
+            #print '{}'.format('a.'+str(function)+'.'+str(i) + ';')
         else:
-            print "The function " + '"{}"'.format(function).upper() +  " does not exist."
-
-    def digitalOut(self, d_outPut, is_on):
-        if is_on == 1 or is_on == 0:
-            self.ser.write('"{}"'.format('E;o.' + str(d_outPut) + str(is_on) + ';'))
+            print "The function " + '{}'.format(function).upper() +  " does not exist."
+    
+    def analogIn(self, function, alphaIds):
+        outPuts = []
+        if function == 'a':
+            for i in alphaIds:
+                #self.ser.read(4)
+                self.ser.write('{}'.format('E;a.'+str(function)+'.'+str(i) + ';'))
+                print "from analog Input -----"
+                #print self.ser.readline()
+                outPuts.append(self.ser.readline())
+            return outPuts
+                
+        
+                
+                #print '{}'.format('a.'+str(function)+'.'+str(i) + ';')
         else:
-            print ('Inappropriate Arguments')          
+            print "The function " + '{}'.format(function).upper() +  " does not exist."        
                 
             
     # the method to close the port    
