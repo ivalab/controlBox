@@ -1,5 +1,5 @@
 from controlBox import ControlBox
-from robotArmClass import RobotArm
+from robotArm import RobotArm
 
 myBox = ControlBox('COM3', 9600)
 myBox.connect()
@@ -17,7 +17,7 @@ myArm.setServos([3,4],[2000,2000], 25)
 #myArm.setServos(1,2000, 25)
 
 
-print myArm.alphaIds
+print (myArm.alphaIds)
 myArm.setArm([0,0,0],25)
 myArm.setArm([85,85,85],25)
 myArm.setArm([0,0,0],25)

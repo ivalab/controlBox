@@ -1,5 +1,5 @@
 from controlBox import ControlBox
-from robotArmClass import RobotArm
+from robotArm import RobotArm
 from time import sleep
 
 

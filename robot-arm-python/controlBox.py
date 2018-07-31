@@ -10,7 +10,6 @@ import scipy as sci
 from scipy.interpolate import interp1d
 from time import sleep
 
-# Documentation for class ControlBox
 
 class ControlBox:
     
@@ -38,7 +37,7 @@ class ControlBox:
             myList.append(num)
             num = myList
             return num
-    def setServos(self, alphaIds, command, speed = 255):
+    def setServos(self, alphaIds, command, speed = 25):
         
         # check if the arguments are integers or lists
         AlphaInt = []
@@ -52,11 +51,12 @@ class ControlBox:
         if speed >0 and speed < 256:
             if len(alphaIds) == len(command):
                 for i,m in zip(alphaIds, command):
-                    print ('{}'.format('E;m.'+str(i)+'.'+str(m) + ';'))
-                    self.ser.write('{}'.format('E;m.'+str(i)+'.'+str(m) + '.'+str(speed)+';'))
+                    serialCmd = 'E;m.'+str(i)+'.'+str(m) + '.'+str(speed) + ';'
+                    #print ('{}'.format('E;m.'+str(i)+'.'+str(m) + ';'))
+                    self.ser.write(serialCmd.encode())
            
         else:
-            print "speed must be between 0 and 255."
+            print ("speed must be between 0 and 255.")
     ## digitalIn method to allow data input
     ## returns [pins value], [raw values]
     ## @param function precise what to do with arguments
@@ -74,7 +74,7 @@ class ControlBox:
             return (outValues)
             
         else:
-            print "The function " + '{}'.format(function).upper() +  " does not exist."
+            print ("The function " + '{}'.format(function).upper() +  " does not exist.")
 
     ## analogIn method to allow data input
     ## returns [pins value], [raw values], [converted values]
@@ -87,7 +87,7 @@ class ControlBox:
         if function == 'a':
             for i in alphaIds:
                 self.ser.write('{}'.format('E;a.'+str(function)+'.'+str(i) + ';'))
-                print "from analog Input -----"
+                print ("from analog Input -----")
                 outPut = self.ser.readline()
                 # get just the pins and their 1s and 0s
                 pins.append(outPut[10])
@@ -96,14 +96,16 @@ class ControlBox:
             return (pins, rawVals, conVals)
                 
         else:
-            print "The function " + '{}'.format(function).upper() +  " does not exist."
+            print ("The function " + '{}'.format(function).upper() +  " does not exist.")
 
     ## digitalOut method to writes output commands to serial port
     ## @param function precise what to do with arguments
     ## @param d_output precise one pin output to operate on
     ## @param is_on is a boolean value
     def digitalOut(self, d_outPut, is_on):
-        self.ser.write('{}'.format('o.' + str(d_outPut) + '.' + str(is_on) + ';'))
+        serialCmd = 'o.' + str(d_outPut) + '.' + str(is_on)+ ';'
+        self.ser.write(serialCmd.encode())
+        #self.ser.write('{}'.format('o.' + str(d_outPut) + '.' + str(is_on) + ';'))
         reply = self.ser.readline()
         #print '{}'.format('o.' + str(d_outPut) + '.'+ str(is_on)+  ';')
                 
@@ -125,8 +127,14 @@ class ControlBox:
     def shutDown(self):
         self.ser.close()
 
+    ## static method to calibrate the robot Arm
     @staticmethod
     def debugger():
         ser = serial.Serial('COM3', 9600)
-        ser.write('{}'.format(';'))
-        
+        ser.write('{}'.format(';'))     
+
+
+
+
+
+

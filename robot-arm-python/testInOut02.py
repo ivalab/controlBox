@@ -19,6 +19,5 @@ while timing != 15:
     timing += 1
 
 else:
-
     myBox.shutDown()
     print 'time_over'

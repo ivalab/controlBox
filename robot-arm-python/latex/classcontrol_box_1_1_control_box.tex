@@ -1,0 +1,111 @@
+\hypertarget{classcontrol_box_1_1_control_box}{}\section{control\+Box.\+Control\+Box Class Reference}
+\label{classcontrol_box_1_1_control_box}\index{control\+Box.\+Control\+Box@{control\+Box.\+Control\+Box}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classcontrol_box_1_1_control_box_a29fb59eec02ca1447e3a06d4dae11386}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, port\+Name, baud)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcontrol_box_1_1_control_box_a9f886d2e945475796bc405a02ace59a5}{connect}} (self)
+\begin{DoxyCompactList}\small\item\em the method to connect the control box to the computer \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcontrol_box_1_1_control_box_ad2603c1dda6b71659b73f87626e98fc1}{set\+Servos}} (self, alpha\+Ids, command, speed=255)
+\begin{DoxyCompactList}\small\item\em set\+Servos method to move the servor ~\newline
+ \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classcontrol_box_1_1_control_box_a040ca20ecdfd112f21ef18771d722599}{digital\+In}} (self, function, alpha\+Ids)
+\begin{DoxyCompactList}\small\item\em digital\+In method to allow data input \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_afd7f846813731127cd0f15906c981294}\label{classcontrol_box_1_1_control_box_afd7f846813731127cd0f15906c981294}} 
+def {\bfseries analog\+In} (self, function, alpha\+Ids)
+\item 
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_a2cd1553ef7cd86181bb010498ac04ec0}\label{classcontrol_box_1_1_control_box_a2cd1553ef7cd86181bb010498ac04ec0}} 
+def {\bfseries digital\+Out} (self, d\+\_\+out\+Put, is\+\_\+on)
+\item 
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_a889b1cbde3647c439a2d6dcea0c9e3ee}\label{classcontrol_box_1_1_control_box_a889b1cbde3647c439a2d6dcea0c9e3ee}} 
+def {\bfseries shut\+Down} (self)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_a2c3b6b812314670ac48fa37a39f19af1}\label{classcontrol_box_1_1_control_box_a2c3b6b812314670ac48fa37a39f19af1}} 
+def {\bfseries debugger} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_a2d6692df23989622b24b4bf6ff6da742}\label{classcontrol_box_1_1_control_box_a2d6692df23989622b24b4bf6ff6da742}} 
+{\bfseries ser}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_a29fb59eec02ca1447e3a06d4dae11386}\label{classcontrol_box_1_1_control_box_a29fb59eec02ca1447e3a06d4dae11386}} 
+\index{control\+Box\+::\+Control\+Box@{control\+Box\+::\+Control\+Box}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!control\+Box\+::\+Control\+Box@{control\+Box\+::\+Control\+Box}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def control\+Box.\+Control\+Box.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{port\+Name,  }\item[{}]{baud }\end{DoxyParamCaption})}
+
+
+
+The constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port\+Name} & is the serial port connected \\
+\hline
+{\em baud} & represents the baudrate \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_a9f886d2e945475796bc405a02ace59a5}\label{classcontrol_box_1_1_control_box_a9f886d2e945475796bc405a02ace59a5}} 
+\index{control\+Box\+::\+Control\+Box@{control\+Box\+::\+Control\+Box}!connect@{connect}}
+\index{connect@{connect}!control\+Box\+::\+Control\+Box@{control\+Box\+::\+Control\+Box}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily def control\+Box.\+Control\+Box.\+connect (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+the method to connect the control box to the computer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em self} & is the object pointer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_a040ca20ecdfd112f21ef18771d722599}\label{classcontrol_box_1_1_control_box_a040ca20ecdfd112f21ef18771d722599}} 
+\index{control\+Box\+::\+Control\+Box@{control\+Box\+::\+Control\+Box}!digital\+In@{digital\+In}}
+\index{digital\+In@{digital\+In}!control\+Box\+::\+Control\+Box@{control\+Box\+::\+Control\+Box}}
+\subsubsection{\texorpdfstring{digital\+In()}{digitalIn()}}
+{\footnotesize\ttfamily def control\+Box.\+Control\+Box.\+digital\+In (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{function,  }\item[{}]{alpha\+Ids }\end{DoxyParamCaption})}
+
+
+
+digital\+In method to allow data input 
+
+
+\begin{DoxyParams}{Parameters}
+{\em function} & precise  is a list of servos you want to communicate to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classcontrol_box_1_1_control_box_ad2603c1dda6b71659b73f87626e98fc1}\label{classcontrol_box_1_1_control_box_ad2603c1dda6b71659b73f87626e98fc1}} 
+\index{control\+Box\+::\+Control\+Box@{control\+Box\+::\+Control\+Box}!set\+Servos@{set\+Servos}}
+\index{set\+Servos@{set\+Servos}!control\+Box\+::\+Control\+Box@{control\+Box\+::\+Control\+Box}}
+\subsubsection{\texorpdfstring{set\+Servos()}{setServos()}}
+{\footnotesize\ttfamily def control\+Box.\+Control\+Box.\+set\+Servos (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{alpha\+Ids,  }\item[{}]{command,  }\item[{}]{speed = {\ttfamily 255} }\end{DoxyParamCaption})}
+
+
+
+set\+Servos method to move the servor ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mid} & is the id number connected to the motor \\
+\hline
+{\em mcmd} & is the rotation direction of the motor \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+robot-\/arm/robot-\/arm-\/python/control\+Box.\+py\end{DoxyCompactItemize}
